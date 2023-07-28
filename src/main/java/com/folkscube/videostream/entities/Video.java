@@ -1,19 +1,22 @@
-package com.folkscube.entities;
+package com.folkscube.videostream.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Entity(name="video")
+
+@Document
 public class Video {
 	@Id
-	private Long id;
+	@Field("_id")
+	private String id;
 	private String title;
 	private String description;
 	private String filepath;
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -34,6 +37,4 @@ public class Video {
 	public void setFilepath(String filepath) {
 		this.filepath = filepath;
 	}
-	
-	
 }
