@@ -1,11 +1,10 @@
 package com.folkscube.videostream.repositories;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
 
 import com.folkscube.videostream.entities.Video;
 
-@Repository
-public interface VideoJpaRepository extends MongoRepository<Video, String> {
+public interface VideoRepository extends MongoRepository<Video, ObjectId> {
 
 }

@@ -1,22 +1,24 @@
 package com.folkscube.videostream.entities;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 
-@Document
+@Document(collection="videos")
 public class Video {
 	@Id
 	@Field("_id")
-	private String id;
+	private ObjectId id;
 	private String title;
 	private String description;
-	private String filepath;
+	private File file;
+
 	public String getId() {
-		return id;
+		return id.toHexString();
 	}
-	public void setId(String id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -31,10 +33,10 @@ public class Video {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getFilepath() {
-		return filepath;
+	public File getFile() {
+		return this.file;
 	}
-	public void setFilepath(String filepath) {
-		this.filepath = filepath;
+	public void setFile(File file) {
+		this.file = file;
 	}
 }
