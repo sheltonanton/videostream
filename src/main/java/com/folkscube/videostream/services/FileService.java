@@ -3,17 +3,18 @@ package com.folkscube.videostream.services;
 import java.io.InputStream;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
-import com.folkscube.videostream.fs.GridFileSystem;
+import com.folkscube.videostream.fs.FileSystem;
 import com.folkscube.videostream.repositories.FileRepository;
 
 @Service
 public class FileService {
-	private GridFileSystem fileSystem;
+	private FileSystem<ObjectId> fileSystem;
 	private FileRepository fileRepository;
 	
-	public FileService(GridFileSystem fileSystem, FileRepository fileRepository) {
+	public FileService(FileSystem<ObjectId> fileSystem, FileRepository fileRepository) {
 		this.fileSystem = fileSystem;
 		this.fileRepository = fileRepository;
 	}
